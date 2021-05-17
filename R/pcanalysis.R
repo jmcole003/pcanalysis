@@ -47,12 +47,12 @@ run.pca <- function(x, center = TRUE, scale = FALSE, svd = TRUE) {
   } else {
     R <- cov(x)   #covarance matrix
     eig <- eigen(R)
-    pcs <- eig$vectors #get PCs
+    pcs <- eig$vectors[,1:k] #get PCs
     colnames(pcs) <- paste('PC', c(1:ncol(pcs)), sep = '')
     rownames(pcs) <- colnames(x)
-    eigenvals <- eig$values
+    eigenvals <- eig$values[1:k]
     pca <- list(Data=head(x), k=k, PCs=pcs,     #final list for output
-                Eigenvalues=eigenvals, sdev = sqrt(eigenvals))
+                Eigenvalues=eigenvals, sdev = na.omit(sqrt(eigenvals)))
   }
   return(pca)
 }
@@ -80,7 +80,7 @@ pca.plot <- function(pca){
        pch=1)
   p <- 100*pca$sdev^2 / sum(pca$sdev^2)  #calculates variance for each PC and take the percentage
   percent <- data.frame(p = p, PC = as.factor(1:length(p))) #creates a data frame for easy plotting
-  barplot(percent$p, ylim=c(0,100), #Plots the percent of variance explained by each PC
+  barplot(as.vector(percent$p), ylim=c(0,100), #Plots the percent of variance explained by each PC
           main="Percent of variance explained",
           xlab="PC",
           ylab="Percent",
