@@ -1,0 +1,15 @@
+Package: pcanalysis
+Type: Package
+Title: Principal Components Analysis Package
+Version: 0.1.0
+Author: Jared Cole, Devin Grobert, Emily Raney
+Maintainer: The package maintainer <jmcole@utexas.edu>
+Description: This package can perform a principal component analysis, output biplots, and cluster the data using k-means analysis. Requires a data matrix as input. 
+License: GPL-3
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 7.1.1
+Suggests: knitr, rmarkdown
+VignetteBuilder: knitr
+Depends: 
+    R (>= 2.10)
