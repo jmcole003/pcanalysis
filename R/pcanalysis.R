@@ -47,10 +47,10 @@ run.pca <- function(x, center = TRUE, scale = FALSE, svd = TRUE) {
   } else {
     R <- cov(x)   #covarance matrix
     eig <- eigen(R)
-    pcs <- eig$vectors[,1:k] #get PCs
+    pcs <- eig$vectors #get PCs
     colnames(pcs) <- paste('PC', c(1:ncol(pcs)), sep = '')
     rownames(pcs) <- colnames(x)
-    eigenvals <- eig$values[1:k]
+    eigenvals <- eig$values
     pca <- list(Data=head(x), k=k, PCs=pcs,     #final list for output
                 Eigenvalues=eigenvals, sdev = sqrt(eigenvals))
   }
