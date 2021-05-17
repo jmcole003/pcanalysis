@@ -52,7 +52,7 @@ head(gnxp_t)[,1:7]
 
 The pcanalysis package let's the user perform PCA using two methods: singular value decomposition (SVD) and spectral decomposition. The default method is SVD. 
 
-PCA using SVD decomposes a data matrix by projecting the data points in space onto a line that maximizes the sum of the squared distances (SSD) between the observations and the origin (after centering the data). The vector that maximizes the SSD is the first principal component (PC). The second PC is found simply by fitting a line perpendicular to the first PC, and the third PC is found by fitting a line perpendicular to both PC 1 and 2, etc. These vectors are often referred to as "singular vectors". The square root of the SSDs yield the "singular values". These indicate how much of the variance each PC contributes to. 
+PCA using SVD decomposes a data matrix by projecting the data points in space onto a line that maximizes the sum of the squared distances (SSD) between the observations and the origin (after centering the data). The vector that maximizes the SSD is the first principal component (PC). The second PC is found simply by fitting a line perpendicular to the first PC, and the third PC is found by fitting a line perpendicular to both PC 1 and 2, etc. These vectors are often referred to as "singular vectors". The values of the SSDs yield the "singular values". These indicate how much of the variance each PC contributes to. 
 
 To run the PCA on a data matrix, call `run.pca()` on the matrix object. For example, PCA can be peformed on the gene expression data:
 
